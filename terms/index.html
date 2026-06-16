@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service — Indonesia Milenial Berkarya</title>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary:   #6c5ce7;
+            --primary-dark: #5a4bd1;
+            --accent:    #fd79a8;
+            --bg-dark:   #0f0e17;
+            --bg-card:   #1a1932;
+            --text-main: #fffffe;
+            --text-muted:#a7a9be;
+            --text-dim:  #6c6e8a;
+            --border:    #2d2b55;
+            --font-display: 'Segoe UI', 'Poppins', system-ui, sans-serif;
+            --font-body:    'Inter', 'Segoe UI', system-ui, sans-serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: -40%;
+            right: -20%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(108,92,231,0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -30%;
+            left: -15%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(253,121,168,0.06) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .wrapper {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== Header ===== */
+        header {
+            padding: 80px 0 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 5vw, 2.6rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header .last-updated {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        nav.back-nav {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        nav.back-nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.25s;
+        }
+
+        nav.back-nav a:hover {
+            color: var(--primary);
+        }
+
+        /* ===== ToC ===== */
+        .toc {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-bottom: 48px;
+        }
+
+        .toc h2 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 14px;
+        }
+
+        .toc ol {
+            list-style: none;
+            counter-reset: toc-counter;
+        }
+
+        .toc ol li {
+            counter-increment: toc-counter;
+            margin-bottom: 6px;
+        }
+
+        .toc ol li::before {
+            content: counter(toc-counter) ". ";
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .toc ol li a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.92rem;
+            transition: color 0.25s;
+        }
+
+        .toc ol li a:hover {
+            color: var(--text-main);
+        }
+
+        /* ===== Sections ===== */
+        .tos-section {
+            margin-bottom: 48px;
+        }
+
+        .tos-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 6px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tos-section h2 .sec-num {
+            color: var(--text-dim);
+            font-weight: 400;
+        }
+
+        .tos-section p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-top: 16px;
+        }
+
+        .tos-section ul, .tos-section ol {
+            margin-top: 10px;
+            padding-left: 24px;
+        }
+
+        .tos-section li {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            line-height: 1.7;
+        }
+
+        .tos-section li strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .tos-section .legal-notice {
+            background: var(--bg-card);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 12px 12px 0;
+            padding: 20px 24px;
+            margin-top: 20px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .tos-section .legal-notice strong {
+            color: var(--text-main);
+        }
+
+        .tos-section .indemnity-list,
+        .tos-section .warranty-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .tos-section .indemnity-list li,
+        .tos-section .warranty-list li {
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .tos-section .indemnity-list li::before,
+        .tos-section .warranty-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+        }
+
+        /* ===== Introduction block ===== */
+        .intro-block {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 32px;
+            margin-bottom: 48px;
+        }
+
+        .intro-block p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .intro-block p strong {
+            color: var(--text-main);
+        }
+
+        .intro-block .all-caps {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        /* ===== Contact card ===== */
+        .contact-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px 28px;
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .contact-card h2 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            border-bottom: none;
+            margin-bottom: 8px;
+        }
+
+        .contact-card p {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+        }
+
+        .contact-card .email {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .contact-card .email a {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.25s;
+        }
+
+        .contact-card .email a:hover {
+            color: var(--primary);
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            padding: 32px 0 48px;
+            text-align: center;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+
+        footer a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.82rem;
+            transition: color 0.25s;
+        }
+
+        footer a:hover {
+            color: var(--primary);
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 600px) {
+            header { padding: 48px 0 28px; }
+            .intro-block,
+            .toc { padding: 20px; }
+            .tos-section h2 { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+    <!-- ===== Back link ===== -->
+    <nav class="back-nav">
+        <a href="/">&larr; Back to Home</a>
+    </nav>
+
+    <!-- ===== Header ===== -->
+    <header>
+        <h1>Terms of Service</h1>
+        <p class="last-updated">Last updated: June 2026</p>
+    </header>
+
+    <!-- ===== Introduction ===== -->
+    <div class="intro-block">
+        <p class="all-caps">Please read carefully</p>
+        <p>
+            <strong>THESE TERMS OF SERVICE CONSTITUTE A LEGAL AGREEMENT BETWEEN YOU AND THE DEVELOPER OF
+            Indonesia Milenial Berkarya</strong> ("we," "our," or "us").
+        </p>
+        <p style="margin-top:14px;">
+            <strong>BY DOWNLOADING, INSTALLING, OR RETAINING A PRODUCT FOR MORE THAN TEN (10) DAYS,
+            YOU AGREE TO BE BOUND BY THESE TERMS.</strong> If you do not agree with these terms
+            and conditions, you may not download or use the Product and must delete it immediately.
+        </p>
+    </div>
+
+    <!-- ===== Table of Contents ===== -->
+    <div class="toc">
+        <h2>Contents</h2>
+        <ol>
+            <li><a href="#sec1">License</a></li>
+            <li><a href="#sec2">Infringement Indemnity</a></li>
+            <li><a href="#sec3">Limited Warranty</a></li>
+            <li><a href="#sec4">Disclaimer and Limitation of Liability</a></li>
+            <li><a href="#sec5">User Judgment</a></li>
+            <li><a href="#sec6">Copyright Policy</a></li>
+            <li><a href="#sec7">Disclaimer</a></li>
+            <li><a href="#sec8">Contact Us</a></li>
+        </ol>
+    </div>
+
+    <!-- ===== Section 1 ===== -->
+    <section class="tos-section" id="sec1">
+        <h2><span class="sec-num">1.</span> License</h2>
+        <ul class="indemnity-list">
+            <li>
+                You acknowledge that you have only a <strong>non-exclusive and limited right</strong>
+                to use the object code version of the Products for non-commercial purposes within
+                the validity period of the agreement.
+            </li>
+            <li>
+                You may make a <strong>single copy</strong> of the Products in object code form
+                for archival or backup purposes.
+            </li>
+            <li>
+                You must include all <strong>Notices</strong> on all copies of the Products.
+            </li>
+            <li>
+                You may not <strong>reverse engineer, decompile, or disassemble</strong> the
+                Products or attempt to gain access to the source code, except as expressly
+                permitted by applicable law.
+            </li>
+            <li>
+                You may not <strong>assign or transfer</strong> the Products or any rights or
+                obligations under these Terms without prior written consent from the developer.
+            </li>
+            <li>
+                Your rights under these Terms will <strong>automatically terminate</strong> if
+                you breach any material obligations. Upon termination, you must destroy all copies
+                of the Products immediately.
+            </li>
+            <li>
+                <strong>All rights not expressly granted are reserved.</strong>
+            </li>
+        </ul>
+    </section>
+
+    <!-- ===== Section 2 ===== -->
+    <section class="tos-section" id="sec2">
+        <h2><span class="sec-num">2.</span> Infringement Indemnity</h2>
+        <p>
+            The developer, its affiliates, subsidiaries, or licensors shall not be liable for
+            any claims arising from:
+        </p>
+        <ul class="indemnity-list">
+            <li>
+                Willful or negligent acts by anyone other than the Products provider.
+            </li>
+            <li>
+                The combination, operation, or use of the Products with any equipment, devices,
+                or software not provided by the developer.
+            </li>
+            <li>
+                Changes or modifications to the Product.
+            </li>
+        </ul>
+        <div class="legal-notice">
+            <strong>To the fullest extent permitted by law,</strong> this section states the
+            entire liability of the developer, its affiliates, subsidiaries, and licensors, as
+            well as your sole remedy for any infringement claims.
+        </div>
+    </section>
+
+    <!-- ===== Section 3 ===== -->
+    <section class="tos-section" id="sec3">
+        <h2><span class="sec-num">3.</span> Limited Warranty</h2>
+        <p>
+            The developer does not represent or warrant that the Products will operate
+            uninterrupted or error-free, especially in the following cases:
+        </p>
+        <ul class="indemnity-list">
+            <li>Unauthorized modification or changes to the Products.</li>
+            <li>Accidents, negligence, misuse, or abuse.</li>
+            <li>
+                Exposure to environmental, power, or operating conditions outside the
+                specifications provided by the developer.
+            </li>
+        </ul>
+    </section>
+
+    <!-- ===== Section 4 ===== -->
+    <section class="tos-section" id="sec4">
+        <h2><span class="sec-num">4.</span> Disclaimer and Limitation of Liability</h2>
+        <p>
+            Except as expressly set forth in these Terms:
+        </p>
+        <ul class="indemnity-list">
+            <li>
+                The developer, its affiliates, subsidiaries, or licensors make
+                <strong>no other warranties</strong>, express or implied, including warranties
+                of merchantability and fitness for a particular purpose.
+            </li>
+            <li>
+                Any implied warranties imposed by law are limited to those contained in these
+                Terms, and to the extent permitted by law, the developer
+                <strong>disclaims all other warranties</strong>.
+            </li>
+        </ul>
+    </section>
+
+    <!-- ===== Section 5 ===== -->
+    <section class="tos-section" id="sec5">
+        <h2><span class="sec-num">5.</span> User Judgment</h2>
+        <ul class="indemnity-list">
+            <li>
+                Some functions of the Products may cause certain programs, functions, or files
+                to be stopped, deleted, or uninstalled.
+            </li>
+            <li>
+                Before using the Products, you should carefully read the instructions to
+                determine whether they are suitable for your purposes, needs, and safety
+                requirements.
+            </li>
+            <li>
+                Once you install the Product and/or perform any operation,
+                <strong>you take full responsibility</strong> for its use.
+            </li>
+            <li>
+                We provide a Privacy Policy as an integral part of this agreement, which you
+                must read and agree to before installing and using the Product.
+            </li>
+        </ul>
+    </section>
+
+    <!-- ===== Section 6 ===== -->
+    <section class="tos-section" id="sec6">
+        <h2><span class="sec-num">6.</span> Copyright Policy</h2>
+        <p>
+            No end user may use the Products to infringe the intellectual property rights of
+            others, including but not limited to patents, trademarks, trade secrets, copyrights,
+            and other proprietary rights.
+        </p>
+        <p>
+            If you are a copyright owner or an authorized representative and believe that any
+            content infringes on your copyright, you may file a notice under the
+            <strong>Digital Millennium Copyright Act (DMCA)</strong> by providing us with:
+        </p>
+        <ul class="indemnity-list">
+            <li>
+                A physical or electronic signature of a person authorized to act on behalf of
+                the owner or agent of the allegedly infringing exclusive right.
+            </li>
+            <li>
+                Identification of the copyrighted work that you claim has been infringed.
+            </li>
+        </ul>
+    </section>
+
+    <!-- ===== Section 7 ===== -->
+    <section class="tos-section" id="sec7">
+        <h2><span class="sec-num">7.</span> Disclaimer</h2>
+        <p>
+            This product is <strong>"not suitable for teenagers"</strong> as some advertisements
+            may contain broad or inappropriate content.
+        </p>
+    </section>
+
+    <!-- ===== Section 8 ===== -->
+    <section class="tos-section" id="sec8">
+        <h2><span class="sec-num">8.</span> Contact Us</h2>
+        <p>
+            If you have any questions or concerns about these Terms of Service, please contact us:
+        </p>
+    </section>
+
+    <!-- ===== Contact Card ===== -->
+    <div class="contact-card">
+        <h2>Indonesia Milenial Berkarya</h2>
+        <p class="email">
+            <a href="mailto:iqraahtisaari@gmail.com">iqraahtisaari@gmail.com</a>
+        </p>
+    </div>
+
+    <!-- ===== Footer ===== -->
+    <footer>
+        <p>&copy; 2026 Indonesia Milenial Berkarya. All rights reserved.</p>
+        <p style="margin-top: 6px;"><a href="/">Back to Home</a></p>
+    </footer>
+
+</div>
+
+</body>
+</html>
